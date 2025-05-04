@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+ 
+  <body>
+    <div class="ControlBar">
+      <button></button>
+      <button></button>
+      <button></button>
+    </div>
+   
+    <div class="player-container">
+      <div class="main-content">
+        <h1 class="text-style">AFM</h1>
+        <button id="addBtn">Добавить трек</button>
+        <div class="playlist">
+          <h2 class="text-style" id="PlayListName">Моя музыка</h2>
+          <ul id="playlist"></ul>
+        </div>
+        <div class="progress-container">
+          <div id="progressBar" class="progress-bar"></div>
+          <span class="text-style" id="currentTime">0:00</span>
+          <span class="text-style" id="duration">0:00</span>
+        </div>
+        <div class="controls">
+          <button id="prevBtn">⏮</button>
+          <button id="playPauseBtn">⏵</button>
+          <button id="nextBtn">⏭</button>
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="volume-control">
+          </div>
+        </div>
+      </div>
+      
+      <div class="playlist-sidebar">
+        <button>Создать плейлист</button>
+        <div id="PlaylistContainer">
+          <ul id="SongLists"></ul>
+        </div>
+      </div>
+    </div>
+
+   
+
+    <div id="playlistModal" class="modal">
+      <div class="modal-content">
+        <h3>Создать новый плейлист</h3>
+        <input type="text" id="playlistNameInput" placeholder="Название плейлиста">
+        <div class="modal-buttons">
+          <button id="cancelPlaylistBtn">Отмена</button>
+          <button id="confirmPlaylistBtn">Создать</button>
+        </div>
+      </div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+    <script src="render.js"></script>
+
+  </body>
+</html>
