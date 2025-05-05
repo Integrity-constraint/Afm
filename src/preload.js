@@ -6,5 +6,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
   openFileDialog: () => ipcRenderer.invoke('dialog:openFile'),
   savePlayerData: (data) => ipcRenderer.invoke('save-player-data', data),
   loadPlayerData: () => ipcRenderer.invoke('load-player-data'),
-  showMessageBox: (options) => ipcRenderer.invoke('show-message-box', options)
+  showMessageBox: (options) => ipcRenderer.invoke('show-message-box', options),
+  minimizeWindow: () => ipcRenderer.send('window:minimize'),
+  toggleMaximizeWindow: () => ipcRenderer.send('window:toggle-maximize'),
+  closeWindow: () => ipcRenderer.send('window:close')
+
+  
 });

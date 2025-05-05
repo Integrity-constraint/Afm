@@ -3,22 +3,23 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
-  background-color: white;
   overflow: hidden; 
-  
+  background-color: transparent; 
+max-width: auto;
+max-height: auto;  
+
 }
 .main-content {
-  flex-grow: 1; /* Основной контент занимает все доступное пространство */
-  padding-right: 20px; /* Отступ от сайдбара */
+  flex-grow: 1; 
+  padding-right: 20px; 
 }
 .playlist-sidebar {
-  width: 150px; /* Фиксированная ширина сайдбара */
-  border-left: 1px solid rgba(255, 255, 255, 0.1); /* Визуальное разделение */
-  padding-left: 20px; /* Отступ от границы */
+  width: 150px; 
+  border-left: 1px solid rgba(255, 255, 255, 0.1); 
+  padding-left: 20px; 
 }
 
-/* Стили для списка в сайдбаре */
+
 #SongLists {
   list-style-type: none;
   padding: 0;
@@ -41,8 +42,8 @@ body {
   color: white;
 }
 .player-container {
-  display: flex; /* Делаем контейнер flex-контейнером */
-  flex-direction: row; /* Элементы располагаются в строку */
+  display: flex; 
+  flex-direction: row; 
   margin: 0 auto;
   background-color: rgb(63, 68, 90);
   padding: 20px;
@@ -62,6 +63,7 @@ body {
   border-radius: 10px 10px 0px 0px;
  margin-top: 2px;
   display: flex; 
+  -webkit-app-region: drag; 
   justify-content: flex-end; 
   gap: 2px; /
 }
@@ -69,17 +71,18 @@ body {
 .ControlBar button {
   padding: 8px 16px;
   border: none;
-  border-radius: 5px; /* Оставляем скругление углов */
+  border-radius: 5px; 
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
-  transform: skewX(-15deg); /* Наклон влево на 15 градусов */
+  transform: skewX(-15deg); 
   position: relative;
-  overflow: hidden; /* Чтобы скруглённые углы не "вылезали" */
+  overflow: hidden;
+  -webkit-app-region: no-drag;
 }
 
-/* Текст внутри кнопки нужно наклонить обратно */
+
 .ControlBar button span {
   display: inline-block;
   transform: skewX(15deg);

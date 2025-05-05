@@ -1,5 +1,8 @@
+
+
+
 document.addEventListener('DOMContentLoaded', async () => { 
-  // Состояние приложения
+ 
   let state = {
       playlists: { 'Моя музыка': [] },
       currentPlaylist: 'Моя музыка',
@@ -7,7 +10,18 @@ document.addEventListener('DOMContentLoaded', async () => {
       volume: 50
   }
 
-  // Получаем все элементы DOM
+  document.getElementById('minimize-btn').addEventListener('click', () => {
+    window.electronAPI.minimizeWindow();
+  });
+  
+  document.getElementById('maximize-btn').addEventListener('click', () => {
+    window.electronAPI.toggleMaximizeWindow();
+  });
+  
+  document.getElementById('close-btn').addEventListener('click', () => {
+    window.electronAPI.closeWindow();
+  });
+  
   const audioPlayer = document.getElementById('audioPlayer')
   const playPauseBtn = document.getElementById('playPauseBtn')
   const prevBtn = document.getElementById('prevBtn')
