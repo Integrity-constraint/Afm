@@ -5,12 +5,12 @@ const path = require('node:path');
 const fs = require('fs');
 const fsPromises = fs.promises;
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
+
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-let mainWindow; // Объявляем переменную mainWindow в глобальной области видимости
+let mainWindow; 
 
 ipcMain.handle('dialog:openFile', async () => {
   const result = await dialog.showOpenDialog({
@@ -24,7 +24,7 @@ ipcMain.handle('dialog:openFile', async () => {
 });
 
 function createWindow() {
-  // Create the browser window.
+ 
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -41,28 +41,25 @@ function createWindow() {
     frame: false,
   });
 
-  // Load the index.html of the app.
+
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
-  // Open the DevTools (optional)
-  // mainWindow.webContents.openDevTools();
 
   return mainWindow;
 }
 
-// This method will be called when Electron has finished initialization
+
 app.whenReady().then(() => {
   mainWindow = createWindow();
 
-  // Обработчики управления окном должны быть объявлены после создания окна
+
   ipcMain.on('window:minimize', () => mainWindow.minimize());
   ipcMain.on('window:toggle-maximize', () => {
     mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize();
   });
   ipcMain.on('window:close', () => mainWindow.close());
 
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       mainWindow = createWindow();
@@ -70,7 +67,7 @@ app.whenReady().then(() => {
   });
 });
 
-// Quit when all windows are closed, except on macOS.
+
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
